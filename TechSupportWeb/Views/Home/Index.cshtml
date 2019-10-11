@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Главная";
+}
+
+<div class="m-4">
+    <div class="row">
+        <div class="col card m-4">
+            <div class="card-body d-flex flex-column justify-content-md-between align-items-lg-start">
+                <h5 class="card-title">Очередь запросов</h5>
+                <p class="card-text">Визуализация очереди входящих запросов</p>
+                @Html.ActionLink("просмотр", "Queve", "Issues", null, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+
+        <div class="col card m-4">
+            <div class="card-body d-flex flex-column justify-content-md-between align-items-lg-start">
+                <h5 class="card-title">История запросов</h5>
+                <p class="card-text">Визуализация истории выполненных запросов (кто выполнил, сколько времени заняло)</p>
+                @Html.ActionLink("просмотр", "History", "Issues", null, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+
+        <div class="col card m-4">
+            <div class="card-body d-flex flex-column justify-content-md-between align-items-lg-start">
+                <h5 class="card-title">Сведения о сотрудниках</h5>
+                <p class="card-text">Визуализация состояния сотрудников на текущий момент (занят/свободен)</p>
+                @Html.ActionLink("просмотр", "Index", "Workers", null, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+
+        <div class="col card m-4">
+            <div class="card-body d-flex flex-column justify-content-md-between align-items-lg-start">
+                <h5 class="card-title">Настройка</h5>
+                <p class="card-text">Конфигурирование параметров web приложения</p>
+                @Html.ActionLink("просмотр", "Index", "Settings", null, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+    </div>
+</div>

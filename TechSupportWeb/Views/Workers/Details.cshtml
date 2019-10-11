@@ -1,0 +1,33 @@
+﻿@model TechSupportWeb.Models.Workers.DetailsModel
+
+@{
+    ViewBag.Title = "Сведения о сотруднике";
+}
+
+<h5 class="m-4">Сведения о сотруднике</h5>
+
+<form>
+    <div class="form-group row">
+        @Html.LabelFor(model => model.ID, new { @class = "col-form-label col-md-2" })
+        @Html.TextBoxFor(model => model.ID, new { @readonly = "readonly", @class = "col-md-2" })
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.IsDeleted, new { @class = "col-form-label col-md-2" })
+        @Html.TextBoxFor(model => model.IsDeleted, new { @readonly = "readonly", @class = "col-md-2" })
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.Name, new { @class = "col-form-label col-md-2" })
+        @Html.TextBoxFor(model => model.Name, new { @readonly = "readonly", @class = "col-md-2" })
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.IssueText, new { @class = "col-form-label col-md-2" })
+        @if (Model.IssueId != null)
+        {
+            @Html.ActionLink(Model.IssueText, "Details", "Issues", new { id = Model.IssueId }, new { @class = "btn btn-link" })
+        }
+    </div>
+
+</form>

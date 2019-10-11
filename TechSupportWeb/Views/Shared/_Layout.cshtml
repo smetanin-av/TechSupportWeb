@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body class="pt-5">
+    <nav class="navbar fixed-top navbar-dark bg-primary">
+        @Html.ActionLink("Тестовое задание ASP.NET", "Index", "Home", null, new { @class = "navbar-brand" })
+    </nav>
+    <div class="container-fluid">
+        @RenderBody()
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

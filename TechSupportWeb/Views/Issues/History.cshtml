@@ -1,0 +1,72 @@
+﻿@model IEnumerable<TechSupportWeb.Models.Issues.HistoryModel>
+
+@{
+    ViewBag.Title = "История запросов";
+}
+
+<h5 class="m-4">История запросов</h5>
+
+<table class="table table-striped table-bordered">
+    <thead class="table-primary">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Text)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CanceledAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssignedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeOfWaiting)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompletedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeOfProcess)
+            </th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.Text, "Details", "Issues", new { id = item.ID }, new { @class = "btn btn-link" })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CanceledAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssignedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeOfWaiting)
+            </td>
+            <td>
+                @if (item.WorkerId != null)
+                {
+                    @Html.ActionLink(item.WorkerName, "Details", "Workers", new { id = item.WorkerId }, new { @class = "btn btn-link" })
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompletedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeOfProcess)
+            </td>
+        </tr>
+    }
+
+</table>

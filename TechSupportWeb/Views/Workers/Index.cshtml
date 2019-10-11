@@ -1,0 +1,54 @@
+﻿@model IEnumerable<TechSupportWeb.Models.Workers.WorkerModel>
+
+@{
+    ViewBag.Title = "Сведения о сотрудниках";
+}
+
+<h5 class="m-4">Сведения о сотрудниках</h5>
+
+<p>
+    @Html.ActionLink("Добавить оператора", "AddOperator", null, new { @class = "btn btn-info" })
+    @Html.ActionLink("Добавить менеджера", "AddManager", null, new { @class = "btn btn-info" })
+</p>
+
+<table class="table table-striped table-bordered">
+    <thead class="table-primary">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IssueText)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.ID.ToString(), "Details", "Workers", new { id = item.ID }, new { @class = "btn btn-link" })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @if (item.IssueId != null)
+                {
+                    @Html.ActionLink(item.IssueText, "Details", "Issues", new { id = item.IssueId }, new { @class = "btn btn-link" })
+                }
+            </td>
+            <td>
+                @if (item.IsNotFixed)
+                {
+                    @Html.ActionLink("Удалить", "Delete", new { id = item.ID }, new { @class = "btn btn-danger" })
+                }
+            </td>
+        </tr>
+    }
+
+</table>
